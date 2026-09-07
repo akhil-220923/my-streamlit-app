@@ -1,0 +1,4 @@
+event_id,event_type,person_track_id,frame,timestamp,risk,evidence_file,status,created_at
+EVT-001,Zone Entry,2,30,00:01.20,HIGH,evidence_001.jpg,Confirmed,2026-09-05 17:27:22
+EVT-002,Zone Entry,7,108,00:04.33,HIGH,evidence_002.jpg,Confirmed,2026-09-05 17:28:22
+EVT-003,Zone Entry,36,177,00:07.10,HIGH,evidence_003.jpg,Confirmed,2026-09-05 17:29:22

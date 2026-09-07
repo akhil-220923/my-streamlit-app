@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  ibvap-app:
+    build: .
+    container_name: ibvap_analytics_platform
+    ports:
+      - "8501:8501"
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+    restart: unless-stopped

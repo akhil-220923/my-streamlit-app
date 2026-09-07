@@ -1,0 +1,30 @@
+# Environments & Secrets
+.env
+.env.local
+secrets.toml
+.streamlit/secrets.toml
+
+# Notebooks & Heavy AI Models (Exceeding GitHub Limits)
+*.ipynb
+.ipynb_checkpoints/
+models/
+output/detect/
+*.avi
+*.mp4
+!output/final_intrusion_video.mp4
+
+# Python cache & build
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+*.egg-info/
+venv/
+env/
+.venv
+
+# OS Files
+.DS_Store
+Thumbs.db
