@@ -1316,7 +1316,36 @@ def inject_custom_css():
         -webkit-font-smoothing: antialiased;
     }}
     .main .block-container {{ max-width: 1440px; padding-top: 1rem; padding-bottom: 2.5rem; }}
-    #MainMenu, footer, header, .stDeployButton {{ visibility: hidden; display: none; }}
+    #MainMenu, footer, .stDeployButton {{ visibility: hidden; display: none; }}
+
+    /* Streamlit mobile header & sidebar expand/collapse button */
+    [data-testid="stHeader"] {{
+        background: transparent !important;
+        z-index: 99999 !important;
+    }}
+    [data-testid="stSidebarCollapseButton"], [data-testid="stSidebarExpandButton"], [data-testid="stHeader"] button {{
+        visibility: visible !important;
+        display: inline-flex !important;
+        color: #00f5d4 !important;
+        background: rgba(0, 245, 212, 0.12) !important;
+        border: 1px solid rgba(0, 245, 212, 0.3) !important;
+        border-radius: 10px !important;
+    }}
+
+    @media (max-width: 768px) {{
+        [data-testid="stSidebar"] {{
+            z-index: 100000 !important;
+            box-shadow: 0 0 40px rgba(0,0,0,0.8);
+        }}
+        .main .block-container {{
+            padding-left: 0.8rem !important;
+            padding-right: 0.8rem !important;
+            padding-top: 0.5rem !important;
+        }}
+        .ibvap-header {{
+            padding: 14px 16px !important;
+        }}
+    }}
 
     {sidebar_css}
 
@@ -1623,6 +1652,8 @@ def main():
     inject_custom_css()
     render_sidebar()
     render_header()
+    render_nav_buttons()
+    st.markdown("<div style='height:16px;'></div>", unsafe_allow_html=True)
 
     page = st.session_state.get("ibvap_page", "command-center")
     if page == "command-center":

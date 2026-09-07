@@ -34,9 +34,27 @@ st.markdown("""
 .main .block-container { max-width: 1400px; padding-top: 1rem; padding-bottom: 2rem; }
 .main > div { padding-top: 1rem; }
 
-/* Hide Streamlit chrome */
-#stMainMenu, footer { display: none; }
-.stDeployButton { display: none; }
+/* Streamlit mobile header & sidebar expand/collapse button */
+#stMainMenu, footer, .stDeployButton { display: none; }
+[data-testid="stHeader"] {
+    background: transparent !important;
+    z-index: 99999 !important;
+}
+[data-testid="stSidebarCollapseButton"], [data-testid="stSidebarExpandButton"], [data-testid="stHeader"] button {
+    visibility: visible !important;
+    display: inline-flex !important;
+    color: #00f5d4 !important;
+    background: rgba(0, 245, 212, 0.12) !important;
+    border: 1px solid rgba(0, 245, 212, 0.3) !important;
+    border-radius: 10px !important;
+}
+
+@media (max-width: 768px) {
+    [data-testid="stSidebar"] {
+        z-index: 100000 !important;
+        box-shadow: 0 0 40px rgba(0,0,0,0.8);
+    }
+}
 
 /* Header bar */
 .ibvap-header {
